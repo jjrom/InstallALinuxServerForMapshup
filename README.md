@@ -51,6 +51,7 @@ Usefull packages
 
     apt-get install git
     apt-get install postfix
+    apt-get install fail2ban
     
 
 Configuration
