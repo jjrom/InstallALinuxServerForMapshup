@@ -28,6 +28,7 @@ Installation
         apt-get install git
         apt-get install postfix
         apt-get install fail2ban
+        apt-get install openjdk-6-jre
     
 Apache and PHP
 --------------
