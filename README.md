@@ -8,77 +8,83 @@ Prerequisites
 
 A server with a fresh Ubuntu 12.10 server distribution installed
 
-Installation
-============
+Installation and configuration
+==============================
 
 Add Ubuntu GIS unstable repository
 ----------------------------------
 
-    apt-get install python-software-properties
-    apt-get install software-properties-common
-    add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-    apt-get update
-    apt-get upgrade
-    
-Apache and PHP
---------------
-
-    apt-get install apache2
-    apt-get install php5
-    apt-get install php5-curl
-    apt-get install php5-pgsql
-
-PostgreSQL and PostGIS
-----------------------
-
-    apt-get install postgresql-9.1
-    apt-get install postgresql-9.1-postgis
-    
-GDAL and OGR
-------------
-
-    apt-get install gdal-bin
-    
-mapserver and mapcache
-----------------------
-
-    apt-get install mapserver-bin
-    apt-get install cgi-mapserver
-    apt-get install libapache2-mod-mapcache
+        apt-get install python-software-properties
+        apt-get install software-properties-common
+        add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+        apt-get update
+        apt-get upgrade
     
 Usefull packages
 ----------------
 
-    apt-get install git
-    apt-get install postfix
-    apt-get install fail2ban
-    
+Installation
 
+        apt-get install git
+        apt-get install postfix
+        apt-get install fail2ban
+    
+Apache and PHP
+--------------
+
+Installation
+
+        apt-get install apache2
+        apt-get install php5
+        apt-get install php5-curl
+        apt-get install php5-pgsql
+
+PostgreSQL and PostGIS
+----------------------
+
+Installation
+
+        apt-get install postgresql-9.1
+        apt-get install postgresql-9.1-postgis
+    
+GDAL and OGR
+------------
+
+Installation
+
+        apt-get install gdal-bin
+        apt-get install python-gdal
+    
+mapserver and mapcache
+----------------------
+
+Installation
+
+        apt-get install mapserver-bin
+        apt-get install cgi-mapserver
+        apt-get install libapache2-mod-mapcache
+    
 Configuration
-=============
 
-mapcache
---------
-
-Create mapcache directory
-
-    mkdir /home/mapcache
-    chown -R www-data:www-data /home/mapcache
+    Create mapcache directory
     
-Edit file /etc/apache2/mod-available/mapcache.conf
+        mkdir /home/mapcache
+        chown -R www-data:www-data /home/mapcache
+    
+    Edit file /etc/apache2/mod-available/mapcache.conf
+    
+        <IfModule mapcache_module>
+            <Directory "/home/mapcache/">
+                Order Allow,Deny
+                Allow from all
+            </Directory>
+            MapCacheAlias /mapcache "/home/mapcache/mapcache.xml"
+        </IfModule>
 
-    <IfModule mapcache_module>
-        <Directory "/home/mapcache/">
-            Order Allow,Deny
-            Allow from all
-        </Directory>
-        MapCacheAlias /mapcache "/home/mapcache/mapcache.xml"
-    </IfModule>
-
-Restart apache
-
-    ln -s /etc/apache2/mods-available/mapcache.conf /etc/apache2/mods-enabled
-    /etc/init.d/apache2 restart
+    Restart apache
+    
+        ln -s /etc/apache2/mods-available/mapcache.conf /etc/apache2/mods-enabled
+        /etc/init.d/apache2 restart
     
     
 
