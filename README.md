@@ -20,10 +20,8 @@ Add Ubuntu GIS unstable repository
         apt-get update
         apt-get upgrade
     
-Usefull packages
-----------------
-
-Installation
+Add some usefull packages
+-------------------------
 
         apt-get install git
         apt-get install postfix
@@ -33,8 +31,6 @@ Installation
 Apache and PHP
 --------------
 
-Installation
-
         apt-get install apache2
         apt-get install php5
         apt-get install php5-curl
@@ -43,15 +39,11 @@ Installation
 PostgreSQL and PostGIS
 ----------------------
 
-Installation
-
         apt-get install postgresql-9.1
         apt-get install postgresql-9.1-postgis
     
 GDAL and OGR
 ------------
-
-Installation
 
         apt-get install gdal-bin
         apt-get install python-gdal
