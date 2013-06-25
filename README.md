@@ -35,6 +35,7 @@ Apache and PHP
         apt-get install php5
         apt-get install php5-curl
         apt-get install php5-pgsql
+        apt-get install php-xml
 
 PostgreSQL and PostGIS
 ----------------------
