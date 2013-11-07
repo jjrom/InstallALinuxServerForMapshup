@@ -42,6 +42,8 @@ PostgreSQL and PostGIS
 
         apt-get install postgresql-9.1
         apt-get install postgresql-9.1-postgis
+        # Contrib contains hstore extension
+        apt-get install postgresql-contrib-9.1
     
 GDAL and OGR
 ------------
